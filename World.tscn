@@ -1,13 +1,19 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://InchWorm.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Level/bricks.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/audio/backgroundwav.wav" type="AudioStream" id=3]
+[ext_resource path="res://Bird.tscn" type="PackedScene" id=4]
 
 [node name="World" type="Node2D"]
 
+[node name="Bird" parent="." instance=ExtResource( 4 )]
+position = Vector2( 77.7137, 108.543 )
+z_index = 2
+
 [node name="InchWorm" parent="." instance=ExtResource( 1 )]
-position = Vector2( 492.623, 317.756 )
+position = Vector2( 1248.6, 899.683 )
+rotation = -1.5708
 
 [node name="Level" parent="." instance=ExtResource( 2 )]
 
