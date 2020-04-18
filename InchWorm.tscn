@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://InchWorm.gd" type="Script" id=1]
+[ext_resource path="res://Point.tscn" type="PackedScene" id=2]
+
+[node name="InchWorm" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="SpringJoint" type="DampedSpringJoint2D" parent="."]
+modulate = Color( 0.376471, 0.141176, 0.141176, 1 )
+self_modulate = Color( 0.32549, 0.145098, 0.145098, 1 )
+position = Vector2( 571.71, 294.073 )
+rotation = 1.5708
+node_a = NodePath("../Head")
+node_b = NodePath("../Butt")
+bias = 0.1
+disable_collision = false
+length = 10.0
+damping = 0.1
+
+[node name="SpringJoint2" type="DampedSpringJoint2D" parent="."]
+modulate = Color( 0.376471, 0.141176, 0.141176, 1 )
+self_modulate = Color( 0.32549, 0.145098, 0.145098, 1 )
+position = Vector2( 373.213, 292.752 )
+rotation = 1.5708
+node_a = NodePath("../Head")
+node_b = NodePath("../Butt")
+bias = 0.1
+disable_collision = false
+length = 10.0
+damping = 0.1
+
+[node name="Head" parent="." instance=ExtResource( 2 )]
+position = Vector2( 371.2, 293.609 )
+color = Color( 0.737255, 0.152941, 0.152941, 1 )
+
+[node name="Butt" parent="." instance=ExtResource( 2 )]
+position = Vector2( 571.418, 294.212 )
+color = Color( 0.670588, 0.4, 0.0784314, 1 )
+
+[node name="Line2D" type="Line2D" parent="."]
+width = 1.0
