@@ -17,4 +17,4 @@ func _process(delta):
 		apply_impulse(Vector2(0,0), Vector2(0,-10))
 
 func _draw():
-	draw_circle(Vector2(0,0),radius,color)
+	draw_circle(Vector2(0,0), radius, color)
