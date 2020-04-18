@@ -1,18 +1,15 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://InchWorm.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Level/temp_level.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Level/bricks.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/audio/backgroundwav.wav" type="AudioStream" id=3]
 
 [node name="World" type="Node2D"]
 
 [node name="InchWorm" parent="." instance=ExtResource( 1 )]
-position = Vector2( -3.61002, 8.12253 )
+position = Vector2( 492.623, 317.756 )
 
 [node name="Level" parent="." instance=ExtResource( 2 )]
-position = Vector2( 680.783, 22.5561 )
-scale = Vector2( 4, 4 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-autoplay = true
