@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/accordian_a.wav-96553797b0b4729e96c44d71499f5d9a.sample"
+
+[deps]
+
+source_file="res://assets/audio/accordian_a.wav"
+dest_files=[ "res://.import/accordian_a.wav-96553797b0b4729e96c44d71499f5d9a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,5 +1,25 @@
 extends Node2D
 
+var state = "normal"
+var last_note_played = null
+
+func play_note():
+	var note = randi() % 5
+	if note == last_note_played:
+		note = (note + 1) % 5
+	last_note_played = note
+	
+	if note == 0:
+		$AudioG.play()
+	if note == 1:
+		$AudioA.play()
+	if note == 2:
+		$AudioB.play()
+	if note == 3:
+		$AudioC.play()
+	if note == 4:
+		$AudioD.play()
+
 func process_body(body: Node2D, dist, anchor, u, i, grow_max, grow_scale):
 	body.position =  $Butt.position + (dist * 0.143 * i * u)
 	var dist_from_anchor = body.position.distance_to(anchor.position) / 2
@@ -18,21 +38,28 @@ func place_body():
 	process_body($Body6,dist,$Head,u,6,10,1)
 	
 	if dist < 190:
-		$Head.z_index = 0
-		$Body.z_index = 1
-		$Body2.z_index = 2
-		$Body3.z_index = 3
-		$Body4.z_index = 3
-		$Body5.z_index = 2
-		$Body6.z_index = 1
+		$Head.z_index = 1
+		$Body.z_index = 2
+		$Body2.z_index = 3
+		$Body3.z_index = 4
+		$Body4.z_index = 4
+		$Body5.z_index = 3
+		$Body6.z_index = 2
 	else:
-		$Head.z_index = 0
-		$Body.z_index = 1
-		$Body2.z_index = 1
-		$Body3.z_index = 1
-		$Body4.z_index = 1
-		$Body5.z_index = 1
-		$Body6.z_index = 1
+		$Head.z_index = 1
+		$Body.z_index = 2
+		$Body2.z_index = 2
+		$Body3.z_index = 2
+		$Body4.z_index = 2
+		$Body5.z_index = 2
+		$Body6.z_index = 2
+	
+	if dist > 210 and state != "stretched":
+		state = "stretched"
+		play_note()
+	elif dist < 175 and state != "scrunched":
+		state = "scrunched"
+		play_note()
 	
 	
 func _ready():
