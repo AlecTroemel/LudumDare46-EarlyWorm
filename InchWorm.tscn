@@ -21,7 +21,9 @@ node_a = NodePath("../Head")
 node_b = NodePath("../Butt")
 bias = 0.1
 disable_collision = false
-length = 10.0
+length = 200.0
+rest_length = 200.0
+stiffness = 30.0
 damping = 0.1
 
 [node name="SpringJoint2" type="DampedSpringJoint2D" parent="."]
@@ -32,7 +34,9 @@ node_a = NodePath("../Head")
 node_b = NodePath("../Butt")
 bias = 0.1
 disable_collision = false
-length = 10.0
+length = 200.0
+rest_length = 200.0
+stiffness = 30.0
 damping = 0.1
 
 [node name="Butt" parent="." instance=ExtResource( 2 )]
