@@ -31,9 +31,10 @@ disable_collision = false
 length = 10.0
 damping = 0.1
 
-[node name="Head" parent="." instance=ExtResource( 2 )]
-position = Vector2( 371.2, 293.609 )
-color = Color( 0.737255, 0.152941, 0.152941, 1 )
+[node name="Butt" parent="." instance=ExtResource( 2 )]
+position = Vector2( 571.418, 294.212 )
+z_index = 1
+color = Color( 0.87451, 0.490196, 0.0313726, 1 )
 radius = 40
 
 [node name="Body" parent="." instance=ExtResource( 3 )]
@@ -66,10 +67,10 @@ z_index = 2
 color = Color( 0.835294, 0.541176, 0.12549, 1 )
 radius = 30
 
-[node name="Butt" parent="." instance=ExtResource( 2 )]
-position = Vector2( 571.418, 294.212 )
-z_index = -1
-color = Color( 0.87451, 0.490196, 0.0313726, 1 )
+[node name="Head" parent="." instance=ExtResource( 2 )]
+position = Vector2( 371.2, 293.609 )
+z_index = 10
+color = Color( 0.737255, 0.152941, 0.152941, 1 )
 radius = 40
 
 [node name="Line2D" type="Line2D" parent="."]

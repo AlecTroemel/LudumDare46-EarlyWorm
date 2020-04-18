@@ -4,19 +4,36 @@ func process_body(body: Node2D, dist, anchor, u, i, grow_max, grow_scale):
 	body.position =  $Butt.position + (dist * 0.143 * i * u)
 	var dist_from_anchor = body.position.distance_to(anchor.position) / 2
 	body.grow = max((grow_max - dist_from_anchor) * grow_scale, 0)
-	body.z_index = int(body.grow) # i # + int(body.grow)
 	body.update()
 	
 func place_body():
 	var dist = $Head.position.distance_to($Butt.position)
 	var u = ($Head.position - $Butt.position).normalized()
-	
+
 	process_body($Body,dist,$Butt,u,1,0,1)
 	process_body($Body2,dist,$Butt,u,2,30,0.80)
 	process_body($Body3,dist,$Butt,u,3,45,1)
 	process_body($Body4,dist,$Head,u,4,45,1)
 	process_body($Body5,dist,$Head,u,5,30,0.80)
 	process_body($Body6,dist,$Head,u,6,10,1)
+	
+	if dist < 190:
+		$Head.z_index = 0
+		$Body.z_index = 1
+		$Body2.z_index = 2
+		$Body3.z_index = 3
+		$Body4.z_index = 3
+		$Body5.z_index = 2
+		$Body6.z_index = 1
+	else:
+		$Head.z_index = 0
+		$Body.z_index = 1
+		$Body2.z_index = 1
+		$Body3.z_index = 1
+		$Body4.z_index = 1
+		$Body5.z_index = 1
+		$Body6.z_index = 1
+	
 	
 func _ready():
 	$Line2D.add_point($Head.position)
