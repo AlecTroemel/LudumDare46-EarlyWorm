@@ -1,13 +1,22 @@
 extends Node2D
 
+func process_body(body: Node2D, dist, anchor, u, i, grow_max, grow_scale):
+	body.position =  $Butt.position + (dist * 0.143 * i * u)
+	var dist_from_anchor = body.position.distance_to(anchor.position) / 2
+	body.grow = max((grow_max - dist_from_anchor) * grow_scale, 0)
+	body.z_index = int(body.grow) # i # + int(body.grow)
+	body.update()
+	
 func place_body():
 	var dist = $Head.position.distance_to($Butt.position)
 	var u = ($Head.position - $Butt.position).normalized()
 	
-	$Body.position =  $Butt.position + (dist * 0.2 * u)
-	$Body2.position =  $Butt.position + (dist * 0.4 * u)
-	$Body3.position =  $Butt.position + (dist * 0.6 * u)
-	$Body4.position =  $Butt.position + (dist * 0.8 * u)
+	process_body($Body,dist,$Butt,u,1,0,1)
+	process_body($Body2,dist,$Butt,u,2,30,0.80)
+	process_body($Body3,dist,$Butt,u,3,45,1)
+	process_body($Body4,dist,$Head,u,4,45,1)
+	process_body($Body5,dist,$Head,u,5,30,0.80)
+	process_body($Body6,dist,$Head,u,6,10,1)
 	
 func _ready():
 	$Line2D.add_point($Head.position)
