@@ -25,6 +25,7 @@ func _process(delta):
 func _integrate_forces(state):
 	if reset_physics:
 		state.transform = Transform2D(0, starting_pos)
+		state.linear_velocity = Vector2()
 		reset_physics = false
 
 		

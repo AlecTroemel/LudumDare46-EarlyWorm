@@ -57,8 +57,7 @@ func load_level(i):
 	var level_resource = load(filepath)
 	var level = level_resource.instance()
 	
-	$InchWorm.teleport(level.worm_position)
-	$InchWorm.rotation_degrees = level.worm_rotation
+	$InchWorm.teleport(level.worm_position, level.worm_butt_position)
 	$Bird.position = level.bird_position
 	
 	# move camera to the bird, then transition

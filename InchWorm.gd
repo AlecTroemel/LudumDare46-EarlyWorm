@@ -2,13 +2,20 @@ extends Node2D
 var state = "normal"
 var last_note_played = null
 
-func teleport(pos):
+func teleport(pos, butt_pos):
 	$Head.mode = 0
 	$Butt.mode = 0
-#	self.set_position(pos)
+	
 	$Head.reset(pos, 1)
-	$Butt.reset(pos + Vector2(200,0), 0)
-
+	if butt_pos == "R":
+		$Butt.reset(pos + Vector2(200,0), 0)
+	elif butt_pos == "D":
+		$Butt.reset(pos + Vector2(0,200), 0)
+	elif butt_pos == "L":
+		$Butt.reset(pos + Vector2(-200,0), 0)
+	elif butt_pos == "U":
+		$Butt.reset(pos + Vector2(0,-200), 0)
+		
 func play_note():
 	var note = randi() % 5
 	if note == last_note_played:
