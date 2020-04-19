@@ -36,3 +36,5 @@ func _on_Bird_area_entered(area):
 		1, 0, 1,
 		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start()
+	
+	$BGMusic.play()

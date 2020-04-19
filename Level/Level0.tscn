@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Level/bricks.tres" type="TileSet" id=1]
 [ext_resource path="res://InchWorm.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Bird.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Level/Level0.gd" type="Script" id=4]
+[ext_resource path="res://assets/audio/backgroundwav.wav" type="AudioStream" id=5]
 
 [sub_resource type="DynamicFontData" id=9]
 font_path = "res://assets/fonts/BubblegumSans-Regular.otf"
@@ -100,5 +101,8 @@ tile_data = PoolIntArray( 393229, 3, 0, 393230, 3, 0, 393231, 3, 0, 393232, 3, 0
 position = Vector2( 1151.09, 629.211 )
 
 [node name="Bird" parent="World" instance=ExtResource( 3 )]
-position = Vector2( 87.0074, 597.664 )
+position = Vector2( 83.4913, 601.18 )
+
+[node name="BGMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
 [connection signal="area_entered" from="World/Bird" to="." method="_on_Bird_area_entered"]

@@ -10,4 +10,4 @@ wet = 0.32
 
 [resource]
 bus/0/effect/0/effect = SubResource( 1 )
-bus/0/effect/0/enabled = true
+bus/0/effect/0/enabled = false
