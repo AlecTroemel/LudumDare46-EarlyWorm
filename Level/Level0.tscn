@@ -100,5 +100,5 @@ tile_data = PoolIntArray( 393229, 3, 0, 393230, 3, 0, 393231, 3, 0, 393232, 3, 0
 position = Vector2( 1151.09, 629.211 )
 
 [node name="Bird" parent="World" instance=ExtResource( 3 )]
-position = Vector2( 893.971, 583.599 )
+position = Vector2( 87.0074, 597.664 )
 [connection signal="area_entered" from="World/Bird" to="." method="_on_Bird_area_entered"]
