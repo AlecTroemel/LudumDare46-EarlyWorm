@@ -3,10 +3,6 @@ extends Node2D
 var first_time = true
 var levels = ["Level0", "Level1"]
 var current_level = null
-
-func _process(delta):
-#	print($InchWorm.position)
-	pass
 	
 func _ready():
 	current_level = 0
@@ -60,7 +56,7 @@ func load_level(i):
 	var filepath = "res://Level/%s.tscn" % levels[i]
 	var level_resource = load(filepath)
 	var level = level_resource.instance()
-	add_child(level)
+	
 	$InchWorm.teleport(level.worm_position)
 	$InchWorm.rotation_degrees = level.worm_rotation
 	$Bird.position = level.bird_position
@@ -70,4 +66,4 @@ func load_level(i):
 	$CameraRig.teleport(level.bird_position)
 	$CameraRig.follow($InchWorm.get_node('Body3'))
 	
-	
+	add_child(level)

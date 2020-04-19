@@ -1,21 +1,13 @@
 extends Node2D
-
 var state = "normal"
 var last_note_played = null
 
 func teleport(pos):
 	$Head.mode = 0
 	$Butt.mode = 0
-	
-	$Head.position = Vector2.ZERO
-	$Butt.position = Vector2(200,0)
-	$SpringJoint2.position = $Butt.position
-	$SpringJoint2.look_at($Head.position)
-	
-	self.position = pos
-	
-	$Head.mode = 1
-	$Butt.mode = 0
+#	self.set_position(pos)
+	$Head.reset(pos, 1)
+	$Butt.reset(pos + Vector2(200,0), 0)
 
 func play_note():
 	var note = randi() % 5
@@ -95,13 +87,18 @@ func _input(event):
 				$Butt.mode=0
 
 func _process(delta):
+	
+#	if $Butt.position.distance_to($Head.position) > 400:
+#		$Butt.mode = 0
+#		$Butt.set_position($Head.position + Vector2(200,0))
+		
 	$Line2D.points[0] = $Head.position
 	$Line2D.points[1] = $Butt.position
 	
 	$SpringJoint.position = $Head.position
-	$SpringJoint.look_at($Butt.position)
-	
 	$SpringJoint2.position = $Butt.position
+	
+	$SpringJoint.look_at($Butt.position)
 	$SpringJoint2.look_at($Head.position)
 	
 	place_body()
