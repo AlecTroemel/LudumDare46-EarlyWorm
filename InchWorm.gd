@@ -3,6 +3,18 @@ extends Node2D
 var state = "normal"
 var last_note_played = null
 
+func teleport(pos):
+	$Head.mode = 0
+	$Butt.mode = 0
+	
+	$Butt.position = Vector2(0,0)
+	self.position = pos
+	$Head.position = Vector2.ZERO
+	$Butt.position = Vector2(200,0)
+	
+	$Head.mode = 1
+	$Butt.mode = 0
+
 func play_note():
 	var note = randi() % 5
 	if note == last_note_played:
@@ -93,8 +105,3 @@ func _process(delta):
 	place_body()
 	
 	$Area2D.position = $Head.position
-	
-#func _physics_process(delta):
-#	if Input.is_action_just_pressed("ui_accept"):
-
-

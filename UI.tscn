@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://UI.gd" type="Script" id=1]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://assets/fonts/BubblegumSans-Regular.otf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 128
+font_data = SubResource( 1 )
+
+[sub_resource type="Theme" id=3]
+default_font = SubResource( 2 )
+
+[sub_resource type="DynamicFontData" id=4]
+font_path = "res://assets/fonts/BubblegumSans-Regular.otf"
+
+[sub_resource type="DynamicFont" id=5]
+size = 54
+font_data = SubResource( 4 )
+
+[sub_resource type="Theme" id=6]
+default_font = SubResource( 5 )
+
+[node name="UI" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="CenterContainer" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 59.0
+margin_right = 1432.0
+margin_bottom = 369.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Title"]
+modulate = Color( 0.952941, 0.466667, 0.466667, 1 )
+margin_left = 345.0
+margin_top = 80.0
+margin_right = 1087.0
+margin_bottom = 230.0
+theme = SubResource( 3 )
+text = "the Early Worm"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instruction" type="CenterContainer" parent="."]
+modulate = Color( 1, 1, 1, 0.803922 )
+margin_left = 9.0
+margin_top = 778.0
+margin_right = 806.0
+margin_bottom = 1085.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Instruction"]
+modulate = Color( 0.952941, 0.466667, 0.466667, 1 )
+margin_left = 26.0
+margin_top = 21.0
+margin_right = 770.0
+margin_bottom = 286.0
+theme = SubResource( 6 )
+text = "Arrow keys to move body part,
+hold SPACE to control the other side.
+
+good luck! "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]

@@ -1,108 +1,12 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Level/bricks.tres" type="TileSet" id=1]
-[ext_resource path="res://InchWorm.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Bird.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Level/Level0.gd" type="Script" id=4]
-[ext_resource path="res://assets/audio/backgroundwav.wav" type="AudioStream" id=5]
-
-[sub_resource type="DynamicFontData" id=9]
-font_path = "res://assets/fonts/BubblegumSans-Regular.otf"
-
-[sub_resource type="DynamicFont" id=10]
-size = 128
-font_data = SubResource( 9 )
-
-[sub_resource type="Theme" id=11]
-default_font = SubResource( 10 )
-
-[sub_resource type="DynamicFontData" id=7]
-font_path = "res://assets/fonts/BubblegumSans-Regular.otf"
-
-[sub_resource type="DynamicFont" id=8]
-size = 54
-font_data = SubResource( 7 )
-
-[sub_resource type="Theme" id=6]
-default_font = SubResource( 8 )
 
 [node name="Level0" type="Node2D"]
 script = ExtResource( 4 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -35.0
-margin_right = 1499.0
-margin_bottom = 1094.0
-color = Color( 0.827451, 0.956863, 0.952941, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Title" type="CenterContainer" parent="."]
-modulate = Color( 1, 1, 1, 0 )
-margin_top = 59.0
-margin_right = 1432.0
-margin_bottom = 369.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="Title"]
-modulate = Color( 0.952941, 0.466667, 0.466667, 1 )
-margin_left = 345.0
-margin_top = 80.0
-margin_right = 1087.0
-margin_bottom = 230.0
-theme = SubResource( 11 )
-text = "the Early Worm"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Instruction" type="CenterContainer" parent="."]
-modulate = Color( 1, 1, 1, 0.803922 )
-margin_left = 9.0
-margin_top = 778.0
-margin_right = 806.0
-margin_bottom = 1085.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="Instruction"]
-modulate = Color( 0.952941, 0.466667, 0.466667, 1 )
-margin_left = 26.0
-margin_top = 21.0
-margin_right = 770.0
-margin_bottom = 286.0
-theme = SubResource( 6 )
-text = "Arrow keys to move body part,
-hold SPACE to control the other side.
-
-good luck! "
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Tween" type="Tween" parent="."]
-
-[node name="World" type="Node2D" parent="."]
-
-[node name="TileMap" type="TileMap" parent="World"]
+[node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
 format = 1
 tile_data = PoolIntArray( 393229, 3, 0, 393230, 3, 0, 393231, 3, 0, 393232, 3, 0, 393233, 3, 0, 393234, 3, 0, 393235, 3, 0, 393236, 3, 0, 393237, 3, 0, 458765, 3, 0, 458766, 3, 0, 458767, 3, 0, 458768, 3, 0, 458769, 3, 0, 458770, 3, 0, 458771, 3, 0, 458772, 3, 0, 458773, 3, 0, 524295, 3, 0, 524296, 3, 0, 524297, 3, 0, 524298, 3, 0, 524299, 3, 0, 524300, 3, 0, 524301, 3, 0, 524302, 3, 0, 524303, 3, 0, 524304, 3, 0, 524305, 3, 0, 524306, 3, 0, 524307, 3, 0, 524308, 3, 0, 524309, 3, 0, 589825, 3, 0, 589826, 3, 0, 589827, 3, 0, 589828, 3, 0, 589829, 3, 0, 589830, 3, 0, 589831, 3, 0, 589832, 3, 0, 589833, 3, 0, 589834, 3, 0, 589835, 3, 0, 589836, 3, 0, 589837, 3, 0, 589838, 3, 0, 589839, 3, 0, 589840, 3, 0, 589841, 3, 0, 589842, 3, 0, 589843, 3, 0, 589844, 3, 0, 589845, 3, 0, 655361, 3, 0, 655362, 3, 0, 655363, 3, 0, 655364, 3, 0, 655365, 3, 0, 655366, 3, 0, 655367, 3, 0, 655368, 3, 0, 655369, 3, 0, 655370, 3, 0, 655371, 3, 0, 655372, 3, 0, 655373, 3, 0, 655374, 3, 0, 655375, 3, 0, 655376, 3, 0, 655377, 3, 0, 655378, 3, 0, 655379, 3, 0, 655380, 3, 0, 655381, 3, 0, 720903, 3, 0, 720904, 3, 0, 720905, 3, 0, 720906, 3, 0, 720907, 3, 0, 720908, 3, 0, 720909, 3, 0, 720910, 3, 0, 720911, 3, 0, 720912, 3, 0, 720913, 3, 0, 720914, 3, 0, 720915, 3, 0, 720916, 3, 0, 720917, 3, 0, 786445, 3, 0, 786446, 3, 0, 786447, 3, 0, 786448, 3, 0, 786449, 3, 0, 786450, 3, 0, 786451, 3, 0, 786452, 3, 0, 786453, 3, 0, 851981, 3, 0, 851982, 3, 0, 851983, 3, 0, 851984, 3, 0, 851985, 3, 0, 851986, 3, 0, 851987, 3, 0, 851988, 3, 0, 851989, 3, 0 )
-
-[node name="InchWorm" parent="World" instance=ExtResource( 2 )]
-position = Vector2( 1151.09, 629.211 )
-
-[node name="Bird" parent="World" instance=ExtResource( 3 )]
-position = Vector2( 83.4913, 601.18 )
-
-[node name="BGMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
-[connection signal="area_entered" from="World/Bird" to="." method="_on_Bird_area_entered"]
