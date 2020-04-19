@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://InchWorm.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World.gd" type="Script" id=2]
 [ext_resource path="res://assets/audio/backgroundwav.wav" type="AudioStream" id=3]
 [ext_resource path="res://Bird.tscn" type="PackedScene" id=4]
 [ext_resource path="res://UI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Camera/Camera.tscn" type="PackedScene" id=6]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 2 )
@@ -54,4 +55,6 @@ __meta__ = {
 wait_time = 5.0
 
 [node name="Timer2" type="Timer" parent="."]
+
+[node name="CameraRig" parent="." instance=ExtResource( 6 )]
 [connection signal="area_entered" from="Bird" to="." method="_on_Bird_area_entered"]

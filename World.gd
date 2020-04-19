@@ -60,3 +60,11 @@ func load_level(i):
 	$InchWorm.teleport(level.worm_position)
 	$InchWorm.rotation_degrees = level.worm_rotation
 	$Bird.position = level.bird_position
+	
+	
+	# move camera to the bird, then transition
+	# smoothly to worm
+	$CameraRig.teleport(level.bird_position)
+	$CameraRig.follow($InchWorm.get_node('Body3'))
+	
+	
