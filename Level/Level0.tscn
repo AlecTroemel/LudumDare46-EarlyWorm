@@ -5,15 +5,15 @@
 [ext_resource path="res://Bird.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Level/Level0.gd" type="Script" id=4]
 
-[sub_resource type="DynamicFontData" id=1]
+[sub_resource type="DynamicFontData" id=9]
 font_path = "res://assets/fonts/BubblegumSans-Regular.otf"
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=10]
 size = 128
-font_data = SubResource( 1 )
+font_data = SubResource( 9 )
 
-[sub_resource type="Theme" id=3]
-default_font = SubResource( 2 )
+[sub_resource type="Theme" id=11]
+default_font = SubResource( 10 )
 
 [sub_resource type="DynamicFontData" id=7]
 font_path = "res://assets/fonts/BubblegumSans-Regular.otf"
@@ -54,7 +54,7 @@ margin_left = 345.0
 margin_top = 80.0
 margin_right = 1087.0
 margin_bottom = 230.0
-theme = SubResource( 3 )
+theme = SubResource( 11 )
 text = "the Early Worm"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -63,7 +63,7 @@ __meta__ = {
 [node name="Instruction" type="CenterContainer" parent="."]
 modulate = Color( 1, 1, 1, 0.803922 )
 margin_left = 9.0
-margin_top = 781.0
+margin_top = 778.0
 margin_right = 806.0
 margin_bottom = 1085.0
 size_flags_horizontal = 3
@@ -75,9 +75,9 @@ __meta__ = {
 [node name="Label" type="Label" parent="Instruction"]
 modulate = Color( 0.952941, 0.466667, 0.466667, 1 )
 margin_left = 26.0
-margin_top = 19.0
+margin_top = 21.0
 margin_right = 770.0
-margin_bottom = 284.0
+margin_bottom = 286.0
 theme = SubResource( 6 )
 text = "Arrow keys to move body part,
 hold SPACE to control the other side.
@@ -100,5 +100,5 @@ tile_data = PoolIntArray( 393229, 3, 0, 393230, 3, 0, 393231, 3, 0, 393232, 3, 0
 position = Vector2( 1151.09, 629.211 )
 
 [node name="Bird" parent="World" instance=ExtResource( 3 )]
-position = Vector2( 88.7655, 564.26 )
+position = Vector2( 893.971, 583.599 )
 [connection signal="area_entered" from="World/Bird" to="." method="_on_Bird_area_entered"]
