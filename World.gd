@@ -4,6 +4,10 @@ var first_time = true
 var levels = ["Level0", "Level1"]
 var current_level = null
 
+func _process(delta):
+#	print($InchWorm.position)
+	pass
+	
 func _ready():
 	current_level = 0
 	load_level(0)
@@ -60,7 +64,6 @@ func load_level(i):
 	$InchWorm.teleport(level.worm_position)
 	$InchWorm.rotation_degrees = level.worm_rotation
 	$Bird.position = level.bird_position
-	
 	
 	# move camera to the bird, then transition
 	# smoothly to worm

@@ -7,10 +7,12 @@ func teleport(pos):
 	$Head.mode = 0
 	$Butt.mode = 0
 	
-	$Butt.position = Vector2(0,0)
-	self.position = pos
 	$Head.position = Vector2.ZERO
 	$Butt.position = Vector2(200,0)
+	$SpringJoint2.position = $Butt.position
+	$SpringJoint2.look_at($Head.position)
+	
+	self.position = pos
 	
 	$Head.mode = 1
 	$Butt.mode = 0

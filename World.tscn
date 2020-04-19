@@ -20,7 +20,6 @@ position = Vector2( 77.7137, 108.543 )
 z_index = 2
 
 [node name="InchWorm" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1248.6, 899.683 )
 z_index = 1
 
 [node name="BGMusic" type="AudioStreamPlayer" parent="."]

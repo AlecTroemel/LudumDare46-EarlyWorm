@@ -1,7 +1,7 @@
 extends Node2D
 
 export (Color) var color = null 
-export (int) var radius = 10
+export (int) var radius = 15
 export (int) var grow = 0
 
 func _draw():
