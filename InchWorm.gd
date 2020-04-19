@@ -91,6 +91,10 @@ func _process(delta):
 	$SpringJoint2.look_at($Head.position)
 	
 	place_body()
+	
+	$Area2D.position = $Head.position
+	
 #func _physics_process(delta):
 #	if Input.is_action_just_pressed("ui_accept"):
+
 

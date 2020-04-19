@@ -16,7 +16,6 @@ _global_script_class_icons={
 [application]
 
 config/name="inch_worm"
-run/main_scene="res://World.tscn"
 config/icon="res://icon.png"
 
 [display]
