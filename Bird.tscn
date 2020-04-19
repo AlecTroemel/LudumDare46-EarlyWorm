@@ -227,7 +227,7 @@ playing = true
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 64.1338, 52.6491 )
+position = Vector2( 81.7642, 2.91732 )
 shape = SubResource( 36 )
 
 [node name="Bite" type="AudioStreamPlayer" parent="."]

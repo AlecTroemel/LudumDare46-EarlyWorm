@@ -1,7 +1,7 @@
 extends Node2D
 
 var first_time = true
-var levels = ["Level0", "Level1"]
+var levels = ["Level0", "Level1", "Level2", "End"]
 var current_level = null
 	
 func _ready():
