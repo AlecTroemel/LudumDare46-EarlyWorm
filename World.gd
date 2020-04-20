@@ -1,7 +1,7 @@
 extends Node2D
 
 var first_time = true
-var levels = ["Level0", "Level1", "Level2", "Level3", "End"]
+var levels = ["Level0", "Level1", "Level2", "Level3", "Level4","Level5", "End"]
 var current_level = null
 	
 var hunger = 100
