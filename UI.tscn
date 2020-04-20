@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://UI.gd" type="Script" id=1]
 [ext_resource path="res://big_text_theme.tres" type="Theme" id=2]
@@ -8,50 +8,54 @@
 [ext_resource path="res://assets/art/ui/bar_bg.png" type="Texture" id=6]
 [ext_resource path="res://assets/art/ui/bar_fill.png" type="Texture" id=7]
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.592157, 0.67451, 0.909804, 1 )
+corner_detail = 20
+
+[sub_resource type="AtlasTexture" id=1]
 flags = 4
 atlas = ExtResource( 5 )
 region = Rect2( 850, 384, 170, 192 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=2]
 flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 0, 384, 170, 192 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=3]
 flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 850, 384, 170, 192 )
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ SubResource( 6 ) ],
+"frames": [ SubResource( 1 ) ],
 "loop": true,
 "name": "famished",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 4 ) ],
+"frames": [ SubResource( 2 ) ],
 "loop": true,
 "name": "happy",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 7 ) ],
+"frames": [ SubResource( 3 ) ],
 "loop": true,
 "name": "hungry",
 "speed": 5.0
 } ]
 
-[sub_resource type="DynamicFontData" id=1]
+[sub_resource type="DynamicFontData" id=5]
 font_path = "res://assets/fonts/BubblegumSans-Regular.otf"
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=6]
 size = 54
 outline_size = 3
 outline_color = Color( 1, 0.6, 0.6, 1 )
-font_data = SubResource( 1 )
+font_data = SubResource( 5 )
 
-[sub_resource type="Theme" id=3]
-default_font = SubResource( 2 )
+[sub_resource type="Theme" id=7]
+default_font = SubResource( 6 )
 
 [node name="UI" type="MarginContainer"]
 anchor_left = 0.5
@@ -81,32 +85,43 @@ custom_constants/margin_left = 20
 [node name="HBoxContainer" type="HBoxContainer" parent="Hunger"]
 margin_left = 20.0
 margin_top = 20.0
-margin_right = 420.0
-margin_bottom = 1080.0
+margin_right = 470.0
+margin_bottom = 170.0
 size_flags_horizontal = 0
+size_flags_vertical = 0
 
-[node name="Bird" type="MarginContainer" parent="Hunger/HBoxContainer"]
-margin_right = 140.0
+[node name="Panel" type="Panel" parent="Hunger/HBoxContainer"]
+margin_right = 450.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 450, 150 )
+custom_styles/panel = SubResource( 8 )
+
+[node name="Bird" type="MarginContainer" parent="Hunger/HBoxContainer/Panel"]
+margin_left = 4.0
+margin_right = 144.0
 margin_bottom = 140.0
 rect_min_size = Vector2( 140, 140 )
 size_flags_horizontal = 2
 size_flags_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Hunger/HBoxContainer/Bird"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Hunger/HBoxContainer/Panel/Bird"]
 scale = Vector2( 0.7, 0.7 )
-frames = SubResource( 5 )
+frames = SubResource( 4 )
 animation = "hungry"
 centered = false
 
-[node name="Bar" type="MarginContainer" parent="Hunger/HBoxContainer"]
-margin_left = 144.0
-margin_right = 400.0
+[node name="Bar" type="MarginContainer" parent="Hunger/HBoxContainer/Panel"]
+margin_left = 148.0
+margin_right = 404.0
 margin_bottom = 52.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
 custom_constants/margin_top = 20
 
-[node name="TextureProgress" type="TextureProgress" parent="Hunger/HBoxContainer/Bar"]
+[node name="TextureProgress" type="TextureProgress" parent="Hunger/HBoxContainer/Panel/Bar"]
 margin_top = 20.0
 margin_right = 256.0
 margin_bottom = 52.0
@@ -176,7 +191,7 @@ grow_vertical = 0
 [node name="Label" type="Label" parent="VBoxContainer/Instruction/MarginContainer"]
 margin_right = 744.0
 margin_bottom = 265.0
-theme = SubResource( 3 )
+theme = SubResource( 7 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Arrow keys to move body part,
 hold SPACE to control the other side.
