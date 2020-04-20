@@ -1,20 +1,24 @@
 extends Node2D
 var state = "normal"
 var last_note_played = null
+var controlable = true
 
 func teleport(pos, butt_pos):
 	$Head.mode = 0
 	$Butt.mode = 0
 	
-	$Head.reset(pos, 1)
 	if butt_pos == "R":
-		$Butt.reset(pos + Vector2(200,0), 0)
+		$Head.reset(pos, 1, 0)
+		$Butt.reset(pos + Vector2(200,0), 0, 0)
 	elif butt_pos == "D":
-		$Butt.reset(pos + Vector2(0,200), 0)
+		$Head.reset(pos, 1, 90)
+		$Butt.reset(pos + Vector2(0,200), 0, 90)
 	elif butt_pos == "L":
-		$Butt.reset(pos + Vector2(-200,0), 0)
+		$Head.reset(pos, 1, 180)
+		$Butt.reset(pos - Vector2(200,0), 0, 180)
 	elif butt_pos == "U":
-		$Butt.reset(pos + Vector2(0,-200), 0)
+		$Head.reset(pos, 1, 270)
+		$Butt.reset(pos - Vector2(0, 200), 0, 270)
 		
 func play_note():
 	var note = randi() % 5
@@ -84,7 +88,7 @@ func _ready():
 	
 
 func _input(event):
-	if event is InputEventKey:
+	if event is InputEventKey and controlable:
 		if event.scancode == KEY_SPACE:
 			if event.is_pressed() == true:
 				$Head.mode=0
@@ -94,11 +98,6 @@ func _input(event):
 				$Butt.mode=0
 
 func _process(delta):
-	
-#	if $Butt.position.distance_to($Head.position) > 400:
-#		$Butt.mode = 0
-#		$Butt.set_position($Head.position + Vector2(200,0))
-		
 	$Line2D.points[0] = $Head.position
 	$Line2D.points[1] = $Butt.position
 	
@@ -111,3 +110,14 @@ func _process(delta):
 	place_body()
 	
 	$Area2D.position = $Head.position
+
+func stop_controls():
+	controlable = false
+	$Head.controlable = false
+	$Butt.controlable = false
+
+func start_controls():
+	controlable = true
+	$Head.controlable = true
+	$Butt.controlable = true
+	

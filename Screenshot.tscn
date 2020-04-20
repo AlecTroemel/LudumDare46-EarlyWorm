@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://InchWorm.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Bird.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Level/Level1.tscn" type="PackedScene" id=3]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Bird" parent="." instance=ExtResource( 2 )]
+position = Vector2( 309.307, 340.81 )
+z_index = 3
+
+[node name="InchWorm" parent="Bird" instance=ExtResource( 1 )]
+position = Vector2( 438.185, 234.844 )
+
+[node name="Level1" parent="." instance=ExtResource( 3 )]
+z_index = -1

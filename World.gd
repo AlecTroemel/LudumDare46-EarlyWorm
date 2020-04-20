@@ -6,12 +6,17 @@ var current_level = null
 var old_level = null
 var hunger = 100
 var max_hunger = 100
+var loading = false
 	
 func _ready():
 	hunger = max_hunger
 	load_level(0)
 
 func _on_Bird_area_entered(area):
+	if loading:
+		return
+	loading = true
+	$InchWorm.stop_controls()
 	if first_time:
 		$BGMusic.play()
 		$UIZ/UI.hide_tutorial()
@@ -38,6 +43,8 @@ func progress_level():
 	yield($Timer2, "timeout")
 	fadent_screen()
 	yield($Tween, "tween_completed")
+	$InchWorm.start_controls()
+	loading = false
 
 func fade_screen():
 	var tween = get_node("Tween")
