@@ -10,7 +10,7 @@ var max_hunger = 100
 func _ready():
 	hunger = max_hunger
 	current_level = 0
-	load_level(0)
+	load_level(2)
 
 func _on_Bird_area_entered(area):
 	if first_time:
