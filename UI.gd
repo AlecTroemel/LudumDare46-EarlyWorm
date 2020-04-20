@@ -35,7 +35,7 @@ func hide_title():
 	yield(tween, "tween_completed")
 
 func show_hunger():
-	$Hunger/Panel/VBoxContainer/MarginContainer/Label.text = messages[0]
+	$Hunger/VBoxContainer/MarginContainer/Label.text = messages[0]
 	$MessageTimer.start()
 	var tween = get_node("Tween")
 	tween.interpolate_property($Hunger, "modulate:a",
@@ -54,22 +54,22 @@ func hide_hunger():
 	yield(tween, "tween_completed")
 
 func update_hunger(h):
-	$Hunger/Panel/VBoxContainer/Bar/TextureProgress.value = h
+	$Hunger/VBoxContainer/Bar/TextureProgress.value = h
 
 func _on_MessageTimer_timeout():
 	var tween = get_node("Tween")
-	tween.interpolate_property($Hunger/Panel/VBoxContainer/MarginContainer/Label, "modulate:a",
+	tween.interpolate_property($Hunger/VBoxContainer/MarginContainer/Label, "modulate:a",
 		1, 0, 0.5,
 		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start()
 	yield(tween, "tween_completed")
 	
 	var i = randi() % len(messages)
-	if messages[i] == $Hunger/Panel/VBoxContainer/MarginContainer/Label.text:
+	if messages[i] == $Hunger/VBoxContainer/MarginContainer/Label.text:
 		i = (i+1) % len(messages)
-	$Hunger/Panel/VBoxContainer/MarginContainer/Label.text = "\"%s\"" % messages[i]
+	$Hunger/VBoxContainer/MarginContainer/Label.text = "\"%s\"" % messages[i]
 	
-	tween.interpolate_property($Hunger/Panel/VBoxContainer/MarginContainer/Label, "modulate:a",
+	tween.interpolate_property($Hunger/VBoxContainer/MarginContainer/Label, "modulate:a",
 		0, 1, 0.5,
 		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start()
