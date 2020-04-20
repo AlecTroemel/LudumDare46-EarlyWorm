@@ -34,4 +34,4 @@ func show_hunger():
 	yield(tween, "tween_completed")
 
 func update_hunger(h):
-	$Hunger/HBoxContainer/Bar/TextureProgress.value = h
+	$Hunger/HBoxContainer/Panel/Bar/TextureProgress.value = h
