@@ -1,7 +1,7 @@
 extends Node2D
 
 var first_time = true
-var levels = ["Level0", "Level1", "Level2", "End"]
+var levels = ["Level0", "Level1", "Level2", "Level3", "End"]
 var current_level = null
 	
 var hunger = 100
@@ -10,7 +10,7 @@ var max_hunger = 100
 func _ready():
 	hunger = max_hunger
 	current_level = 0
-	load_level(2)
+	load_level(0)
 
 func _on_Bird_area_entered(area):
 	if first_time:
