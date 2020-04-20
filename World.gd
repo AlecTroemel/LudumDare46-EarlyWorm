@@ -64,5 +64,6 @@ func load_level(i):
 	# smoothly to worm
 	$CameraRig.teleport(level.bird_position)
 	$CameraRig.follow($InchWorm.get_node('Body3'))
+	$CameraRig.confine(level.camera_limit)
 	
 	add_child(level)
