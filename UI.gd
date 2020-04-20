@@ -9,8 +9,15 @@ func hide_tutorial():
 		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start()
 	yield(tween, "tween_completed")
-	return true
-	
+
+func show_tutorial():
+	var tween = get_node("Tween")
+	tween.interpolate_property($VBoxContainer/Instruction, "modulate:a",
+		0, 1, 0.4,
+		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	tween.start()
+	yield(tween, "tween_completed")
+
 func show_title():
 	var tween = get_node("Tween")
 	tween.interpolate_property($VBoxContainer/Title, "modulate:a",
@@ -33,6 +40,15 @@ func show_hunger():
 	var tween = get_node("Tween")
 	tween.interpolate_property($Hunger, "modulate:a",
 		0, 1, 0.5,
+		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	tween.start()
+	yield(tween, "tween_completed")
+
+func hide_hunger():
+	$MessageTimer.stop()
+	var tween = get_node("Tween")
+	tween.interpolate_property($Hunger, "modulate:a",
+		1, 0, 0.5,
 		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start()
 	yield(tween, "tween_completed")
