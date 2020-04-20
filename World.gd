@@ -5,8 +5,10 @@ var levels = ["Level0", "Level1", "Level2", "End"]
 var current_level = null
 	
 var hunger = 100
+var max_hunger = 100
 	
 func _ready():
+	hunger = max_hunger
 	current_level = 0
 	load_level(0)
 
@@ -31,6 +33,8 @@ func progress_level():
 	$UIZ/UI.hide_title()
 	
 	current_level += 1
+	hunger = min(hunger+30, max_hunger)	
+
 	load_level(current_level)
 	$Timer2.start()
 	yield($Timer2, "timeout")
@@ -52,7 +56,6 @@ func fadent_screen():
 		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start()
 	yield (tween, "tween_completed")
-	
 
 func load_level(i):
 	if current_level > 0:
@@ -71,7 +74,6 @@ func load_level(i):
 	$CameraRig.confine(level.camera_limit)
 	
 	add_child(level)
-
 
 func _on_HungerTimer_timeout():
 	if first_time:
