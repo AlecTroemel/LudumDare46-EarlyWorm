@@ -64,6 +64,7 @@ func load_level(i):
 	
 	$InchWorm.teleport(level.worm_position, level.worm_butt_position)
 	$Bird.position = level.bird_position
+	$Bird.emote(hunger)
 	if level.ending == true:
 		game_won() 
 		
@@ -82,6 +83,7 @@ func _on_HungerTimer_timeout():
 	
 	hunger -= 1
 	$UIZ/UI.update_hunger(hunger)
+	$Bird.emote(hunger)
 	if hunger < 1:
 		game_over()
 		 
