@@ -4,6 +4,8 @@ var first_time = true
 var levels = ["Level0", "Level1", "Level2", "End"]
 var current_level = null
 	
+var hunger = 100
+	
 func _ready():
 	current_level = 0
 	load_level(0)
@@ -18,6 +20,8 @@ func _on_Bird_area_entered(area):
 		$Timer.start()
 		yield($Timer, "timeout")
 		first_time = false
+		$UIZ/UI.show_hunger()
+		
 	progress_level()
 
 func progress_level():
@@ -67,3 +71,16 @@ func load_level(i):
 	$CameraRig.confine(level.camera_limit)
 	
 	add_child(level)
+
+
+func _on_HungerTimer_timeout():
+	if first_time:
+		return 
+	
+	hunger -= 1
+	$UIZ/UI.update_hunger(hunger)
+	if hunger < 1:
+		game_over()
+		 
+func game_over():
+	pass
