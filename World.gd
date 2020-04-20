@@ -31,7 +31,7 @@ func progress_level():
 	
 	$UIZ/UI.hide_title()
 
-	hunger = min(hunger+30, max_hunger)	
+	hunger = max_hunger
 	
 	load_level(current_level+1)
 	$Timer2.start()
